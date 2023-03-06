@@ -4,6 +4,7 @@ from tkinter import ttk
 from math import *
 from tkinter.scrolledtext import ScrolledText
 import time
+import os
 
 main_window = Tk()
 main_window.title("CalcPhysics")
@@ -5742,11 +5743,15 @@ def get_step():
     result_button = Button(step,text="Результат",command=math2).pack(anchor=NW)
     step.mainloop()
 
+def update_view_start():
+    os.system("tcl.py")
+
 main_window_label = Label(main_window,text="Здесь показаны подпрограммы").pack(anchor=CENTER) 
 calc_start = ttk.Button(main_window,text="Калькулятор",command=calc_view).pack(side=TOP)
 step_start = ttk.Button(main_window,text="Работа с степенями", command=get_step).pack(side=TOP)
 lection_start = ttk.Button(main_window,text="Лекции",command=lection_view).pack(side=TOP)
 table_start = ttk.Button(main_window,text="Табличные значения",command=table_view).pack(side=TOP)
+update_start = ttk.Button(main_window,text="Проверка обновлений",command=update_view_start).pack(side=TOP)
 
 main_window.update()
 main_window.mainloop()
