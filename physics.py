@@ -3110,7 +3110,7 @@ def calc_view():
                             result_button.pack(anchor=NW)
                         if u_no.get() == 0 and u0_no.get() == 0 and t_no.get() == 0 and a_no.get() == 0:
                             main_menu = Menu()
-                            main_menu.add_command(label="Очистить окно формул", command=lambda: wid_f(combobox_kinematic,a_check,u0_check,u_check,t_check))
+                            main_menu.add_command(label="Очистить окно", command=lambda: wid_f(combobox_kinematic,a_check,u0_check,u_check,t_check))
                             calc.config(menu=main_menu)
                     u_check = ttk.Checkbutton(calc,text="Скорость неизвестна",variable=u_no,command=checkbutton_Ury)
                     u_check.pack(anchor=NW)
@@ -3220,7 +3220,7 @@ def calc_view():
                             result_button.pack(anchor=NW)          
                         if x_no.get() == 0 and x0_no.get() == 0 and t_no.get() == 0 and a_no.get() == 0 and u0_no.get() == 0:
                             main_menu = Menu()
-                            main_menu.add_command(label="Очистить окно формул", command=lambda: wid_f6(combobox_kinematic,x_check,u0_check,a_check,t_check,x0_check))
+                            main_menu.add_command(label="Очистить окно", command=lambda: wid_f6(combobox_kinematic,x_check,u0_check,a_check,t_check,x0_check))
                             calc.config(menu=main_menu)
                     x_check = ttk.Checkbutton(calc,text="Координата неизвестна",variable=x_no,command=checkbutton_Xry)
                     x_check.pack(anchor=NW)
@@ -3351,7 +3351,7 @@ def calc_view():
                             result_button.pack(anchor=NW)
                         if T_no.get() == 0 and t_no.get() == 0 and N_no.get() == 0:
                             main_menu = Menu()
-                            main_menu.add_command(label="Очистить окно формул", command=lambda: del_f4(combobox_kinematic_2,T_check,N_check,t_check))
+                            main_menu.add_command(label="Очистить окно", command=lambda: del_f4(combobox_kinematic_2,T_check,N_check,t_check))
                             calc.config(menu=main_menu)
                     T_check = ttk.Checkbutton(calc,text="Период неизвестен", variable=T_no,command=checkbutton_tobr)
                     T_check.pack(anchor=NW)
@@ -3397,7 +3397,7 @@ def calc_view():
                             result_button.pack(anchor=NW)
                         if ν_no.get() == 0 and t_no.get() == 0 and N_no.get() == 0: 
                             main_menu = Menu()
-                            main_menu.add_command(label="Очистить окно формул", command=lambda: del_f4(combobox_kinematic_2,t_check,N_check,ν_check))
+                            main_menu.add_command(label="Очистить окно", command=lambda: del_f4(combobox_kinematic_2,t_check,N_check,ν_check))
                             calc.config(menu=main_menu)
                     ν_check = ttk.Checkbutton(calc,text="Частота неизвестна", variable=ν_no,command=checkbutton_chas)
                     ν_check.pack(anchor=NW)
@@ -3443,7 +3443,7 @@ def calc_view():
                             result_button.pack(anchor=NW)
                         if u_no.get() == 0 and R_no.get() == 0 and T_no.get() == 0:
                             main_menu = Menu()
-                            main_menu.add_command(label="Очистить окно формул", command=lambda: del_f4(combobox_kinematic_2,u_check,r_check,T_check))
+                            main_menu.add_command(label="Очистить окно", command=lambda: del_f4(combobox_kinematic_2,u_check,r_check,T_check))
                             calc.config(menu=main_menu)
                     u_check = ttk.Checkbutton(calc,text="Линейная скорость неизвестна",variable=u_no,command=checkbutton_liu)
                     u_check.pack(anchor=NW)
@@ -3489,7 +3489,7 @@ def calc_view():
                             result_button.pack(anchor=NW)
                         if ω_no.get() == 0 and φ_no.get() == 0 and t_no.get() == 0:
                             main_menu = Menu()
-                            main_menu.add_command(label="Очистить окно формул", command=lambda: del_f4(combobox_kinematic_2,ω_check,δφ_check,δt_check))
+                            main_menu.add_command(label="Очистить окно", command=lambda: del_f4(combobox_kinematic_2,ω_check,δφ_check,δt_check))
                             calc.config(menu=main_menu)
                     ω_check = ttk.Checkbutton(calc,text="Угловая скорость неизвестна",variable=ω_no,command=checkbutton_uω)
                     ω_check.pack(anchor=NW)
@@ -3535,7 +3535,7 @@ def calc_view():
                             result_button.pack(anchor=NW)                     
                         if u_no.get() == 0 and R_no.get() == 0 and a_no.get() == 0: 
                             main_menu = Menu()
-                            main_menu.add_command(label="Очистить окно формул", command=lambda: del_f4(combobox_kinematic_2,u_check,r_check,a_check))
+                            main_menu.add_command(label="Очистить окно", command=lambda: del_f4(combobox_kinematic_2,u_check,r_check,a_check))
                             calc.config(menu=main_menu)
                     u_check = ttk.Checkbutton(calc,text="Скорость неизвестна",variable=u_no,command=checkbutton_asr)
                     u_check.pack(anchor=NW)
@@ -3581,7 +3581,7 @@ def calc_view():
                             result_button.pack(anchor=NW)
                         if ω_no.get() == 0 and u_no.get() == 0 and R_no.get() == 0:
                             main_menu = Menu()
-                            main_menu.add_command(label="Очистить окно формул", command=lambda: del_f4(combobox_kinematic_2,u_check,r_check,ω_check))
+                            main_menu.add_command(label="Очистить окно", command=lambda: del_f4(combobox_kinematic_2,u_check,r_check,ω_check))
                             calc.config(menu=main_menu)
                     ω_check = ttk.Checkbutton(calc,text="Угловая скорость неизвестна",variable=ω_no,command=checkbutton_sv_l_r)
                     ω_check.pack(anchor=NW)
@@ -3632,7 +3632,7 @@ def calc_view():
                             result_button.pack(anchor=NW)
                         if F_no.get() == 0 and a_no.get() == 0 and m_no.get() == 0:
                             main_menu = Menu()
-                            main_menu.add_command(label="Очистить окно формул", command=lambda: del_f4(combobox_dunamica,m_check,a_check,F_check))
+                            main_menu.add_command(label="Очистить окно", command=lambda: del_f4(combobox_dunamica,m_check,a_check,F_check))
                             calc.config(menu=main_menu)
                     m_check = ttk.Checkbutton(calc,text="Масса неизвестна",variable=m_no,command=checkbutton_new2)
                     m_check.pack(anchor=NW)
@@ -3677,7 +3677,7 @@ def calc_view():
                             result_button.pack(anchor=NW)
                         if ρ_no.get() == 0 and V_no.get() == 0 and m_no.get() == 0: 
                             main_menu = Menu()
-                            main_menu.add_command(label="Очистить окно формул", command=lambda: del_f4(combobox_dunamica,ro_check,m_check,V_check))
+                            main_menu.add_command(label="Очистить окно", command=lambda: del_f4(combobox_dunamica,ro_check,m_check,V_check))
                             calc.config(menu=main_menu)
                     ro_check = ttk.Checkbutton(calc,text="Плотность вещества неизвестна",variable=ρ_no,command=checkbutton_ro)
                     ro_check.pack(anchor=NW) 
@@ -3744,7 +3744,7 @@ def calc_view():
                             result_button.pack(anchor=NW)
                         if x_no.get() == 0 and k_no.get() == 0 and F_no.get() == 0:
                             main_menu = Menu()
-                            main_menu.add_command(label="Очистить окно формул", command=lambda: del_f4(combobox_dunamica,f_check,k_check,delx_check))
+                            main_menu.add_command(label="Очистить окно", command=lambda: del_f4(combobox_dunamica,f_check,k_check,delx_check))
                             calc.config(menu=main_menu)
                     delx_check = ttk.Checkbutton(calc,text="Деформация пружины неизвестна",variable=x_no,command=checkbutton_rulezk)
                     delx_check.pack(anchor=NW)
@@ -3778,7 +3778,7 @@ def calc_view():
                             result_button.pack(anchor=NW)
                         if w_upn.get() == 0 and w_dn.get() == 0:
                             main_menu = Menu()
-                            main_menu.add_command(label="Очистить окно формул", command=lambda: del_f3(combobox_dunamica,w_up,w_do))
+                            main_menu.add_command(label="Очистить окно", command=lambda: del_f3(combobox_dunamica,w_up,w_do))
                             calc.config(menu=main_menu)
                     w_up = ttk.Checkbutton(calc,text="Вес тела, опускающегося с ускорением и поднимающегося с замедлением",variable=w_upn,command=weight_up)
                     w_up.pack(anchor=NW)
@@ -3832,7 +3832,7 @@ def calc_view():
                             result_button.pack(anchor=NW)
                         if μ_no.get() == 0 and F_no.get() == 0 and N_no.get() == 0: 
                             main_menu = Menu()
-                            main_menu.add_command(label="Очистить окно формул", command=lambda: del_f4(combobox_dunamica,nu_check,f_check,n_check))
+                            main_menu.add_command(label="Очистить окно", command=lambda: del_f4(combobox_dunamica,nu_check,f_check,n_check))
                             calc.config(menu=main_menu)
                     nu_check = ttk.Checkbutton(calc,text="Коэффициент трения неизвестен",variable=μ_no,command=tr_p)
                     nu_check.pack(anchor=NW)
@@ -3899,7 +3899,7 @@ def calc_view():
                             result_button.pack(anchor=NW)
                         if k_no.get() == 0 and V_no.get() == 0 and F_no.get() == 0 and N_no.get() == 0: 
                             main_menu = Menu()
-                            main_menu.add_command(label="Очистить окно формулы", command=lambda: wid_f(combobox_dunamica,k_check,V_check,F_check,V2_check))
+                            main_menu.add_command(label="Очистить окно", command=lambda: wid_f(combobox_dunamica,k_check,V_check,F_check,V2_check))
                             calc.config(menu=main_menu)  
                     k_check = ttk.Checkbutton(calc,text="Коэффициент сопротивления",variable=k_no,command=hd_tr)
                     k_check.pack(anchor=NW)
@@ -3953,7 +3953,7 @@ def calc_view():
                             result_button.pack(anchor=NW)
                         if m_no.get() == 0 and V_no.get() == 0 and p_no.get() == 0:
                             main_menu = Menu()
-                            main_menu.add_command(label="Очистить окно формул", command=lambda: del_f4(combobox_impulus,m_check,p_check,V_check))
+                            main_menu.add_command(label="Очистить окно", command=lambda: del_f4(combobox_impulus,m_check,p_check,V_check))
                             calc.config(menu=main_menu)
                     m_check = ttk.Checkbutton(calc,text="Масса неизвестна",variable=m_no,command=checkbutton_imtel)
                     m_check.pack(anchor=NW)
@@ -3998,7 +3998,7 @@ def calc_view():
                             result_button.pack(anchor=NW)
                         if F_no.get() == 0 and t_no.get() == 0 and p_no.get() == 0:
                             main_menu = Menu()
-                            main_menu.add_command(label="Очистить окно формул", command=lambda: del_f4(combobox_impulus,f_check,p_check,t_check))
+                            main_menu.add_command(label="Очистить окно", command=lambda: del_f4(combobox_impulus,f_check,p_check,t_check))
                             calc.config(menu=main_menu)
                     f_check = ttk.Checkbutton(calc,text="Сила неизвестна",variable=F_no,command=checkbutton_impower)
                     f_check.pack(anchor=NW)
@@ -4104,7 +4104,7 @@ def calc_view():
                             result_button.pack(anchor=NW)
                         if F_no.get() == 0 and A_no.get() == 0: 
                             main_menu = Menu()
-                            main_menu.add_command(label="Очистить окно формулы", command=lambda: del_f3(combobox_workfight,yp_check,yp1_check))
+                            main_menu.add_command(label="Очистить окно", command=lambda: del_f3(combobox_workfight,yp_check,yp1_check))
                             calc.config(menu=main_menu)  
                     yp_check = ttk.Checkbutton(calc,text="Сила упругости с одной деформацией",variable=F_no,command=ypr)
                     yp_check.pack(anchor=NW)
@@ -4140,7 +4140,7 @@ def calc_view():
                             result_button.pack(anchor=NW)
                         if A_no.get() == 0 and F_no.get() == 0:
                             main_menu = Menu()
-                            main_menu.add_command(label="Очистить окно формулы", command=lambda: del_f3(combobox_workfight,tg1_check,tg_check))
+                            main_menu.add_command(label="Очистить окно", command=lambda: del_f3(combobox_workfight,tg1_check,tg_check))
                             calc.config(menu=main_menu)  
                     tg_check = ttk.Checkbutton(calc,text="Работа с одной высотой",variable=A_no,command=tg_p)
                     tg_check.pack(anchor=NW)
@@ -4185,7 +4185,7 @@ def calc_view():
                                     result_button.pack(anchor=NW)  
                                 if t_no.get() == 0 and A_no.get() == 0 and N_no.get() == 0: 
                                     main_menu = Menu()
-                                    main_menu.add_command(label="Очистить окно формулы", command=lambda: wid_f(combobox_workfight,t_check,a_check,n_check))
+                                    main_menu.add_command(label="Очистить окно", command=lambda: wid_f(combobox_workfight,t_check,a_check,n_check))
                                     calc.config(menu=main_menu)  
                             t_check = ttk.Checkbutton(calc,text="Время неизвестно",variable=t_no,command=n1_kkrun)
                             t_check.pack(anchor=NW)
@@ -4306,7 +4306,7 @@ def calc_view():
                             result_button.pack(anchor=NW)
                         if ν_no.get() == 0 and t_no.get() == 0:
                             main_menu = Menu()
-                            main_menu.add_command(label="Очистить окно формулы", command=lambda: del_f3(combobox_mechvol,nu_check,t_check))
+                            main_menu.add_command(label="Очистить окно", command=lambda: del_f3(combobox_mechvol,nu_check,t_check))
                             calc.config(menu=main_menu)  
                     nu_check = ttk.Checkbutton(calc,text="Циклическая частота от обычной частоты",variable=ν_no,command=cylc) 
                     nu_check.pack(anchor=NW)
@@ -4374,7 +4374,7 @@ def calc_view():
                     result_button.pack(anchor=NW)
                 if a_no.get() == 0 and N_no.get() == 0: 
                     main_menu = Menu()
-                    main_menu.add_command(label="Очистить окно формулы", command=lambda: del_f2(zozdyh,powerfnaz))
+                    main_menu.add_command(label="Очистить окно", command=lambda: del_f2(zozdyh,powerfnaz))
                     calc.config(menu=main_menu)  
             powerfnaz = ttk.Checkbutton(calc,text="Коэффицинт поверхностного натяжения", variable=a_no,command=agregat)
             powerfnaz.pack(anchor=NW)
@@ -4442,7 +4442,7 @@ def calc_view():
                             result_button.pack(anchor=NW)
                         if per.get() == 0 and per0.get() == 0 and per1.get() == 0:
                             main_menu = Menu()
-                            main_menu.add_command(label="Очистить окно формулы", command=lambda: del_f4(mkt3,combobox_mkt,mkt2,mkt1))
+                            main_menu.add_command(label="Очистить окно", command=lambda: del_f4(mkt3,combobox_mkt,mkt2,mkt1))
                             calc.config(menu=main_menu) 
                     mkt1 = ttk.Checkbutton(calc,text="Ур-е МКТ с постоянной Больцмана и температурой",variable=per,command=mkt_res)
                     mkt1.pack(anchor=NW)
@@ -4712,7 +4712,7 @@ def calc_view():
                     def poten_power():
                         if per0.get() == 0 and per1.get() == 0:
                             main_menu = Menu()
-                            main_menu.add_command(label="Очистить окно формулы", command=lambda: del_f3(poten1,poten2,combobox_elekstatic))
+                            main_menu.add_command(label="Очистить окно", command=lambda: del_f3(poten1,poten2,combobox_elekstatic))
                             calc.config(menu=main_menu) 
                         if per0.get() == 1 and per1.get() == 0:
                             e_label = Label(calc,text="Напряженность (E):")
@@ -4774,7 +4774,7 @@ def calc_view():
                     def naprr():
                         if per.get() == 0 and per0.get() == 0 and per1.get() == 0:
                             main_menu = Menu()
-                            main_menu.add_command(label="Очистить окно формулы", command=lambda: del_f4(nap1,nap2,nap3,combobox_elekstatic))
+                            main_menu.add_command(label="Очистить окно", command=lambda: del_f4(nap1,nap2,nap3,combobox_elekstatic))
                             calc.config(menu=main_menu) 
                         if per.get() == 1 and per0.get() == 0 and per1.get() == 0:
                             n_label = Label(calc,text="Потенциал (φ₁):")
@@ -4890,7 +4890,7 @@ def calc_view():
                     def energy_zar_con():
                         if per.get() == 0 and per0.get() == 0 and per1.get() == 0 and per2.get() == 0 and per3.get() == 0:
                             main_menu = Menu()
-                            main_menu.add_command(label="Очистить окно формулы", command=lambda: wid_f6(energy1,energy2,energy3,energy4,energy5,combobox_elekstatic))
+                            main_menu.add_command(label="Очистить окно", command=lambda: wid_f6(energy1,energy2,energy3,energy4,energy5,combobox_elekstatic))
                             calc.config(menu=main_menu)
                         if per.get() == 1 and per0.get() == 0 and per1.get() == 0 and per2.get() == 0 and per3.get() == 0:                        
                             n_label = Label(calc,text="Электрический заряд (q):")
@@ -5363,7 +5363,10 @@ def get_step():
     step.mainloop()
 
 def update_view_start():
-    os.system("tcl.py")
+    if os.path.isfile('tcl.py'):
+        os.system("tcl.py")
+    elif os.path.isfile('tcl.exe'):
+        os.system("tcl.exe")
 
 main_window_label = Label(main_window,text="Здесь показаны подпрограммы").pack(anchor=CENTER) 
 calc_start = ttk.Button(main_window,text="Калькулятор",command=calc_view).pack(side=TOP)
