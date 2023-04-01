@@ -35,6 +35,7 @@ Lectures = ["Введение",
             "Глава VII. Элементы термодинамики",
             "Глава VIII. Электростатика и её элементы",
             "Глава IX. Электродинамика",
+            "Глава X. Закон Ома для полной цепи",
             ]
 
 Categories = [
@@ -50,7 +51,20 @@ Categories = [
             "Тепловые двигатели",
             "Электростатика и её элементы",
             "Электродинамика",
+            "Закон Ома для полной цепи",
 ]            
+
+Formules_ZkOm = [
+    "ЭДС",
+    "Закон Ома для полной цепи",
+    "Сила тока короткого замыкания",
+    "Закон Джоуля-Ленца",
+    "Мощность",
+    "Мощность источника тока",
+    "Полезная (тепловая) мощность",
+    "Мощность потерь",
+    "КПД",
+]
 
 Formules_Dunamica = [
     "Второй закон Ньютона",
@@ -2932,6 +2946,218 @@ def calc_view():
         result.pack(anchor=NW)
         result.after(5000, result.destroy)
 
+    
+    def dobavoch_sopr(): ##добавочное сопротивление
+       rv = R_en.get()
+       n = a_en.get()
+       var_result = float(rv)*(float(n)-1)
+       R_en.set("")
+       a_en.set("")
+       result = Label(calc,text=" Rd = " + str(var_result))
+       result.pack(anchor=NW)
+       result.after(5000,result.destroy)
+
+
+    def sopr_paral_soed_2provodnika(): ##сопротивление двух проводников при параллельном соединении
+        r1 = p1_en.get()
+        r2 = p2_en.get()
+        var_result = (float(r1)*float(r2))/(float(r1)+float(r2))
+        p1_en.set("")
+        p2_en.set("")
+        result = Label(calc,text=" R = " + str(var_result))
+        result.pack(anchor=NW)
+        result.after(5000,result.destroy)
+
+    def sopr_paral_soed_3provodnika(): ##сопротивление трех проводников при параллельном соединении
+        r1 = p1_en.get()
+        r2 = p2_en.get()
+        r3 = p21_en.get()
+        var_result = (float(r1)*float(r2)*float(r3))/((float(r2)*float(r3))+(float(r1)*float(r3))+(float(r1)*float(r2)))
+        p1_en.set("")
+        p2_en.set("")
+        p21_en.set("")
+        result = Label(calc,text=" R = " + str(var_result))
+        result.pack(anchor=NW)
+        result.after(5000,result.destroy)
+        
+    def sopr_shunt(): ##сопротивление шунта
+        ra = R_en.get()
+        n = a_en.get()
+        var_result = float(ra)/(float(n)-1)
+        R_en.set("")
+        a_en.set("")
+        result = Label(calc,text=" Rш = " + str(var_result))
+        result.pack(anchor=NW)
+        result.after(5000,result.destroy)
+
+    def EDS(): ##электродвижущая сила
+        Aст = A_en.get()
+        q = q1_en.get()
+        var_result = float(Aст)/float(q)
+        A_en.set("")
+        q1_en.set("")
+        result = Label(calc,text=" ε = " + str(var_result))
+        result.pack(anchor=NW)
+        result.after(5000,result.destroy)
+
+    def ob_sopr(): ##общее сопротивление цепи
+        r = R_en.get()
+        rm = a_en.get()
+        var_result = float(r)+float(rm)
+        R_en.set("")
+        a_en.set("")
+        result = Label(calc,text=" Rобщ = " + str(var_result))
+        result.pack(anchor=NW)
+        result.after(5000,result.destroy)
+
+    def zakon_poln_cepi(): ##Закон Ома для полной цепи
+        ε = a_en.get()
+        r = R_en.get()
+        rm = V_en.get()
+        var_result = float(ε)/(float(r)+float(rm))
+        a_en.set("")
+        R_en.set("")
+        V_en.set("")
+        result = Label(calc,text=" I = " + str(var_result))
+        result.pack(anchor=NW)
+        result.after(5000,result.destroy)
+
+    def sila_toka_korot_zam(): ##Сила тока при коротком замыкании
+        ε = a_en.get()
+        rm = R_en.get()
+        var_result = float(ε)/float(rm)
+        a_en.set("")
+        R_en.set("")
+        result = Label(calc,text=" Iк = " + str(var_result))
+        result.pack(anchor=NW)
+        result.after(5000,result.destroy)
+
+    def zakon_Dj_Lenc(): ##Закон Джоуля-Ленца
+        i = i_en.get()
+        r = R_en.get()
+        t = t_en.get()
+        var_result = float(i)**2*float(r)*float(t)
+        i_en.set("")
+        R_en.set("")
+        t_en.set("")
+        result = Label(calc,text=" Q = " + str(var_result))
+        result.pack(anchot=NW)
+        result.after(5000,result.destroy)
+
+    def moshnost1(): ##Мощность1
+        a = A_en.get()
+        t = t_en.get()
+        var_result = float(a)/float(t)
+        A_en.set("")
+        t_en.set("")
+        result = Label(calc,text=" P = " + str(var_result))
+        result.pack(anchor=NW)
+        result.afret(5000,result.destroy)
+
+    def moshnost2(): ##Мощность2
+        q = q1_en.get()
+        u = A_en.get()
+        t = t_en.get()
+        var_result = (float(q)*float(u))/float(t)
+        q1_en.set("")
+        A_en.set("")
+        t_en.set("")
+        result = Label(calc,text=" P = " + str(var_result))
+        result.pack(anchor=NW)
+        result.after(5000,result.destroy)
+
+    def mashnost3(): ##Мощность3
+        i = i_en.get()
+        u = A_en.get()
+        var_result = float(i)*float(u)
+        i_en.set("")
+        A_en.set("")
+        result = Label(calc,text=" P = " + str(var_result))
+        result.pack(anchor=NW)
+        result.after(5000,result.destroy)
+
+    def moshnost4(): ##Мощность4
+        u = A_en.get()
+        r = R_en.get()
+        var_result = float(u)**2/float(r)
+        A_en.set("")
+        R_en.set("")
+        result = Label(calc,text=" P = " + str(var_result))
+        result.pack(anchor=NW)
+        result.after(5000,result.destroy)
+
+    def moshnost5(): ##Мощность5
+        i = i_en.get()
+        r = R_en.get()
+        var_result = float(i)**2*float(r)
+        i_en.set("")
+        R_en.set("")
+        result = Label(calc,text=" P = " + str(var_result))
+        result.pack(anchor=NW)
+        result.after(5000,result.destroy)
+
+    def moshnost_ist(): ##Мощность источника тока
+        ε = a_en.get()
+        i = i_en.get()
+        var_result = float(ε)*float(i)
+        a_en.set("")
+        i_en.set("")
+        result = Label(calc,text=" Pист = " + str(var_result))
+        result.pack(anchor=NW)
+        result.after(5000,result.destroy)
+
+    def polez_moshnost(): ##Полезная мощность
+        i = i_en.get()
+        r = R_en.get()
+        var_result = float(i)**2*float(r)
+        i_en.set("")
+        R_en.set("")
+        result = Label(calc,text=" Pпл = " + str(var_result))
+        result.pack(anchor=NW)
+        result.after(5000,result.destroy)
+
+    def moshnost_poter(): ##Мощность потерь
+        i = i_en.get()
+        rm = R_en.get()
+        var_result = float(i)**2*float(rm)
+        i_en.set("")
+        R_en.set("")
+        result = Label(calc,text=" Pпт = " + str(var_result))
+        result.pack(anchor=NW)
+        result.after(5000,result.destroy)
+
+    def kpd1(): 
+        p = p1_en.get()
+        pп = p2_en.get()
+        var_result = float(p)/float(pп)
+        p1_en.set("")
+        p2_en.set("")
+        result = Label(calc,text="  η = " + str(var_result))
+        result.pack(anchor=NW)
+        result.after(5000,result.after)
+
+    def kpd2():
+        r = R_en.get()
+        rm = a_en.get()
+        var_result = float(r)/(float(r)+float(rm))
+        R_en.set("")
+        a_en.set("")
+        result = Label(calc,text="  η = " + str(var_result))
+        result.pack(anchor=NW)
+        result.after(5000,result.destroy)
+
+    def polnaya_moshnost():
+        i = i_en.get()
+        r = R_en.get()
+        rm = a_en.get()
+        var_result = float(i)**2*(float(r)+float(rm))
+        i_en.set("")
+        R_en.set("")
+        a_en.set("")
+        result = Label(calc,text=" Pполн = " + str(var_result))
+        result.pack(anchor=NW)
+        result.after(5000,result.destroy)
+
     def selectedbox_cat(event):
         selection = combobox_cat.get()
         if selection == "Кинематика":
@@ -5191,6 +5417,7 @@ def calc_view():
             combobox_elekdunamic = ttk.Combobox(calc,values=Formules_ElekDunamic,state="readonly",width="45")
             combobox_elekdunamic.pack(anchor=NW)
             combobox_elekdunamic.bind("<<ComboboxSelected>>",selection_elekdunamic)
+        
     combobox_cat = ttk.Combobox(calc, values=Categories, state="readonly",width="45")
     combobox_cat.pack(anchor=NW)
     combobox_cat.bind("<<ComboboxSelected>>", selectedbox_cat)
