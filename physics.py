@@ -1229,7 +1229,58 @@ def lection_view():
             text_block.image_create(END,image=duelteor2)
             text_block.configure(state=DISABLED)
             text_block.pack(anchor=NW)
-            text_block.mainloop()                   
+            text_block.mainloop()       
+        if selection == "Глава X. Закон Ома для полной цепи":
+            text.config(text="")
+            text_block.configure(state=NORMAL)
+            text_block.delete("1.0",END)
+            text_block.insert(END, 
+            """
+            Сторонние силы – силы неэлектрического происхождения, которые вызывают разделение зарядов в источнике тока.
+                Сторонние силы, возникающие в источнике тока, должны перемещать заряды против сил электростатического тела, то-есть совершать работу.
+            Величину равную отношению работы сторонних сил по перемещению заряда по замкнутому контуру к величине этого заряда, называют электродвижущей силой.
+                ЭДС - ε, [1В]. ε = Acm/q
+            Полное сопротивление проводников, подключенных к источнику тока называют сопротивлением внешней цепи или внешним сопротивлением.
+            Источник тока обладает сопротивлением, которое называют внутренним сопротивлением цепи. Внутреннее сопротивление определяет количество потерь энергии при прохождении тока.
+            Полное сопротивление на цепи зависит от последовательного соединения двух других сопротивлений. (Rполн = R+r)
+              
+                                        Закон Ома для полной цепи
+            Сила тока в замкнутой цепи равна отношению ЭДС к полному сопротивлению цепи.
+                        I = ε/Rполн
+
+            При коротком замыкании, когда R стремится к нулю, то I меняется в R/r раз.
+                        Iк = ε/r
+
+                Короткое замыкание – соединение концов участка цепи проводником, сопротивление которого очень мало по сравнению с сопротивлением участка цепи.
+
+                                Тепловое действие. Закон Джоуля-Ленца
+            Электрический ток оказывает тепловое действие на проводник. 
+              - Закон Джоуля-Ленца отражает преобразование энергии электрического тока в тепловую энергию.
+            Количество теплоты, выделяемой в проводнике с током равна произведению квадрата силы тока, сопротивления и времени прохождения тока в проводнике.
+                        Q = I²R▲t
+                1) При последовательном соединении: Кол-во теплоты, выделяемой на каждом проводнике, прямопропорционально их сопротивлению.
+                        Q1/Q2 = R1/R2
+                2) При параллельном соеднинении: Кол-во теплоты обратнопропорционально их сопротивлени.
+                        Q1/Q2 = R2/R1
+                
+                                Работа и мощность постоянного тока
+            Мощность - это отношение работы к времени прохождения тока. P - мощность, [Вт]
+                            P = A/t = qU/t = I*U = U²/R = I²R
+                1) При последовательном соединении: Мощность, выделяемая в проводниках, прямопропорционально их сопротивлению.
+                        P1/P2 = R1/R2
+                2) При параллельном соеднинении: Мощность обратнопропорционально их сопротивлени.
+                        P1/P2 = R2/R1
+            Мощность источника тока: Pист = ε*I
+            Полезная (тепловая) мощность: Pполез = I²*R
+            Мощность потерь: Pпотерь = I²*r
+            КПД - это отношение полезной мощности к полной мощности.
+            Полная мощноность: Pполн = I²*(R+r)
+            η = Pполез/Pполн = R/(R+r) * 100%
+            """)
+            text_block.configure(state=DISABLED)
+            text_block.pack(anchor=NW)
+            text_block.mainloop()     
+            print("X")
 
     combobox_lectures = ttk.Combobox(lection, values=Lectures, state="readonly",width="45")
     combobox_lectures.pack(anchor=N,fill=X)
@@ -3041,7 +3092,7 @@ def calc_view():
         R_en.set("")
         t_en.set("")
         result = Label(calc,text=" Q = " + str(var_result))
-        result.pack(anchot=NW)
+        result.pack(anchor=NW)
         result.after(5000,result.destroy)
 
     def moshnost1(): ##Мощность1
@@ -3056,31 +3107,31 @@ def calc_view():
 
     def moshnost2(): ##Мощность2
         q = q1_en.get()
-        u = A_en.get()
+        u = u_en.get()
         t = t_en.get()
         var_result = (float(q)*float(u))/float(t)
         q1_en.set("")
-        A_en.set("")
+        u_en.set("")
         t_en.set("")
         result = Label(calc,text=" P = " + str(var_result))
         result.pack(anchor=NW)
         result.after(5000,result.destroy)
 
-    def mashnost3(): ##Мощность3
+    def moshnost3(): ##Мощность3
         i = i_en.get()
-        u = A_en.get()
+        u = u_en.get()
         var_result = float(i)*float(u)
         i_en.set("")
-        A_en.set("")
+        u_en.set("")
         result = Label(calc,text=" P = " + str(var_result))
         result.pack(anchor=NW)
         result.after(5000,result.destroy)
 
     def moshnost4(): ##Мощность4
-        u = A_en.get()
+        u = u_en.get()
         r = R_en.get()
         var_result = float(u)**2/float(r)
-        A_en.set("")
+        u_en.set("")
         R_en.set("")
         result = Label(calc,text=" P = " + str(var_result))
         result.pack(anchor=NW)
@@ -3138,10 +3189,10 @@ def calc_view():
 
     def kpd2():
         r = R_en.get()
-        rm = a_en.get()
+        rm = V_en.get()
         var_result = float(r)/(float(r)+float(rm))
         R_en.set("")
-        a_en.set("")
+        V_en.set("")
         result = Label(calc,text="  η = " + str(var_result))
         result.pack(anchor=NW)
         result.after(5000,result.destroy)
@@ -5417,7 +5468,204 @@ def calc_view():
             combobox_elekdunamic = ttk.Combobox(calc,values=Formules_ElekDunamic,state="readonly",width="45")
             combobox_elekdunamic.pack(anchor=NW)
             combobox_elekdunamic.bind("<<ComboboxSelected>>",selection_elekdunamic)
-        
+        if selection == "Закон Ома для полной цепи":
+            def selectedbox_zkom(event):
+                selection13 = combobox_zkom.get()
+                if selection13 == "ЭДС":
+                    n_label = Label(calc,text="Работа сторонних сил (Асм):")
+                    n_label.pack(anchor=NW)
+                    n_entry = Entry(calc,textvariable=A_en)
+                    n_entry.pack(anchor=NW)
+                    t_label = Label(calc,text="Электрический заряд (q):")
+                    t_label.pack(anchor=NW)
+                    t_entry = Entry(calc,textvariable=q1_en)
+                    t_entry.pack(anchor=NW)
+                    result_button = Button(calc,text="Результат", command=lambda: (wid_f6(result_button,t_label,t_entry,n_entry,n_label,combobox_zkom), eds()))
+                    result_button.pack(anchor=NW)  
+                if selection13 == "Закон Ома для полной цепи":
+                    n_label = Label(calc,text="Электродвижущая сила (ε):")
+                    n_label.pack(anchor=NW)
+                    n_entry = Entry(calc,textvariable=a_en)
+                    n_entry.pack(anchor=NW)
+                    m_label = Label(calc,text="Внутреннее сопротивление (r):")
+                    m_label.pack(anchor=NW)
+                    m_entry = Entry(calc,textvariable=V_en)
+                    m_entry.pack(anchor=NW)
+                    t_label = Label(calc,text="Внешнее сопротивление (R):")
+                    t_label.pack(anchor=NW)
+                    t_entry = Entry(calc,textvariable=R_en)
+                    t_entry.pack(anchor=NW)
+                    result_button = Button(calc,text="Результат", command=lambda: (del_f8(result_button,t_label,t_entry,n_entry,n_label,m_label,m_entry,combobox_zkom), zakon_poln_cepi()))
+                    result_button.pack(anchor=NW)
+                if selection13 == "Сила тока короткого замыкания":
+                    n_label = Label(calc,text="Электродвижущая сила (ε):")
+                    n_label.pack(anchor=NW)
+                    n_entry = Entry(calc,textvariable=a_en)
+                    n_entry.pack(anchor=NW)
+                    t_label = Label(calc,text="Внутреннее сопротивление (r):")
+                    t_label.pack(anchor=NW)
+                    t_entry = Entry(calc,textvariable=R_en)
+                    t_entry.pack(anchor=NW)
+                    result_button = Button(calc,text="Результат", command=lambda: (wid_f6(result_button,t_label,t_entry,n_entry,n_label,combobox_zkom), sila_toka_korot_zam()))
+                    result_button.pack(anchor=NW)  
+                if selection13 == "Закон Джоуля-Ленца":
+                    n_label = Label(calc,text="Сила тока (I):")
+                    n_label.pack(anchor=NW)
+                    n_entry = Entry(calc,textvariable=i_en)
+                    n_entry.pack(anchor=NW)
+                    m_label = Label(calc,text="Сопротивление (r):")
+                    m_label.pack(anchor=NW)
+                    m_entry = Entry(calc,textvariable=R_en)
+                    m_entry.pack(anchor=NW)
+                    t_label = Label(calc,text="Время прохождения тока (▲t):")
+                    t_label.pack(anchor=NW)
+                    t_entry = Entry(calc,textvariable=t_en)
+                    t_entry.pack(anchor=NW)
+                    result_button = Button(calc,text="Результат", command=lambda: (del_f8(result_button,t_label,t_entry,n_entry,n_label,m_label,m_entry,combobox_zkom), zakon_Dj_Lenc()))
+                    result_button.pack(anchor=NW)
+                if selection13 == "Мощность":
+                    def mozn():
+                        if per.get() == 0 and per0.get() == 0 and per1.get() == 0 and per2.get() == 0 and per3.get() == 0:
+                            main_menu = Menu()
+                            main_menu.add_command(label="Очистить окно", command=lambda: wid_f6(mozn1,mozn2,mozn3,mozn4,mozn5,combobox_zkom))
+                            calc.config(menu=main_menu)
+                        if per.get() == 1 and per0.get() == 0 and per1.get() == 0 and per2.get() == 0 and per3.get() == 0:
+                            n_label = Label(calc,text="Работа (A):")
+                            n_label.pack(anchor=NW)
+                            n_entry = Entry(calc,textvariable=A_en)
+                            n_entry.pack(anchor=NW)
+                            t_label = Label(calc,text="Время (t):")
+                            t_label.pack(anchor=NW)
+                            t_entry = Entry(calc,textvariable=t_en)
+                            t_entry.pack(anchor=NW)
+                            result_button = Button(calc,text="Результат", command=lambda: (wid_f(result_button,t_label,t_entry,n_entry,n_label), moshnost1()))
+                            result_button.pack(anchor=NW)  
+                        if per.get() == 0 and per0.get() == 1 and per1.get() == 0 and per2.get() == 0 and per3.get() == 0:                            
+                            n_label = Label(calc,text="Электрический заряд (q):")
+                            n_label.pack(anchor=NW)
+                            n_entry = Entry(calc,textvariable=q1_en)
+                            n_entry.pack(anchor=NW)
+                            m_label = Label(calc,text="Напряжение (U):")
+                            m_label.pack(anchor=NW)
+                            m_entry = Entry(calc,textvariable=u_en)
+                            m_entry.pack(anchor=NW)
+                            t_label = Label(calc,text="Время (t):")
+                            t_label.pack(anchor=NW)
+                            t_entry = Entry(calc,textvariable=t_en)
+                            t_entry.pack(anchor=NW)
+                            result_button = Button(calc,text="Результат", command=lambda: (del_combobox(result_button,t_label,t_entry,n_entry,n_label,m_label,m_entry), moshnost2()))
+                            result_button.pack(anchor=NW)
+                        if per.get() == 0 and per0.get() == 0 and per1.get() == 1 and per2.get() == 0 and per3.get() == 0:   
+                            n_label = Label(calc,text="Сила тока (I):")
+                            n_label.pack(anchor=NW)
+                            n_entry = Entry(calc,textvariable=i_en)
+                            n_entry.pack(anchor=NW)
+                            t_label = Label(calc,text="Напряжение (U):")
+                            t_label.pack(anchor=NW)
+                            t_entry = Entry(calc,textvariable=u_en)
+                            t_entry.pack(anchor=NW)
+                            result_button = Button(calc,text="Результат", command=lambda: (wid_f(result_button,t_label,t_entry,n_entry,n_label), moshnost3()))
+                            result_button.pack(anchor=NW) 
+                        if per.get() == 0 and per0.get() == 0 and per1.get() == 0 and per2.get() == 1 and per3.get() == 0:   
+                            n_label = Label(calc,text="Сопротивление (R):")
+                            n_label.pack(anchor=NW)
+                            n_entry = Entry(calc,textvariable=R_en)
+                            n_entry.pack(anchor=NW)
+                            t_label = Label(calc,text="Напряжение (U):")
+                            t_label.pack(anchor=NW)
+                            t_entry = Entry(calc,textvariable=u_en)
+                            t_entry.pack(anchor=NW)
+                            result_button = Button(calc,text="Результат", command=lambda: (wid_f(result_button,t_label,t_entry,n_entry,n_label), moshnost4()))
+                            result_button.pack(anchor=NW) 
+                        if per.get() == 0 and per0.get() == 0 and per1.get() == 0 and per2.get() == 0 and per3.get() == 1:   
+                            n_label = Label(calc,text="Сопротивление (R):")
+                            n_label.pack(anchor=NW)
+                            n_entry = Entry(calc,textvariable=R_en)
+                            n_entry.pack(anchor=NW)
+                            t_label = Label(calc,text="Сила тока (I):")
+                            t_label.pack(anchor=NW)
+                            t_entry = Entry(calc,textvariable=i_en)
+                            t_entry.pack(anchor=NW)
+                            result_button = Button(calc,text="Результат", command=lambda: (wid_f(result_button,t_label,t_entry,n_entry,n_label), moshnost5()))
+                            result_button.pack(anchor=NW) 
+                    mozn1 = ttk.Checkbutton(calc, text="Работа и время", variable=per, command=mozn)
+                    mozn1.pack(anchor=NW) 
+                    mozn2 = ttk.Checkbutton(calc,text="Заряд, напряжение и время", variable=per0,command=mozn)
+                    mozn2.pack(anchor=NW) 
+                    mozn3 = ttk.Checkbutton(calc, text="Сила тока и напряжение", variable=per1, command=mozn)
+                    mozn3.pack(anchor=NW)
+                    mozn4 = ttk.Checkbutton(calc, text="Напряжение и сопротивление", variable=per2, command=mozn)
+                    mozn4.pack(anchor=NW)
+                    mozn5 = ttk.Checkbutton(calc, text="Сила тока и сопротивление", variable=per3, command=mozn)
+                    mozn5.pack(anchor=NW)
+                if selection13 == "Мощность источника тока":
+                    n_label = Label(calc,text="Электродвижущая сила (ε):")
+                    n_label.pack(anchor=NW)
+                    n_entry = Entry(calc,textvariable=a_en)
+                    n_entry.pack(anchor=NW)
+                    t_label = Label(calc,text="Сила тока (I):")
+                    t_label.pack(anchor=NW)
+                    t_entry = Entry(calc,textvariable=i_en)
+                    t_entry.pack(anchor=NW)
+                    result_button = Button(calc,text="Результат", command=lambda: (wid_f6(result_button,t_label,t_entry,n_entry,n_label,combobox_zkom), moshnost_ist()))
+                    result_button.pack(anchor=NW)                      
+                if selection13 == "Полезная (тепловая) мощность":
+                    n_label = Label(calc,text="Сопротивление (R):")
+                    n_label.pack(anchor=NW)
+                    n_entry = Entry(calc,textvariable=R_en)
+                    n_entry.pack(anchor=NW)
+                    t_label = Label(calc,text="Сила тока (I):")
+                    t_label.pack(anchor=NW)
+                    t_entry = Entry(calc,textvariable=i_en)
+                    t_entry.pack(anchor=NW)
+                    result_button = Button(calc,text="Результат", command=lambda: (wid_f6(result_button,t_label,t_entry,n_entry,n_label,combobox_zkom), polez_moshnost()))
+                    result_button.pack(anchor=NW)        
+                if selection13 == "Мощность потерь":
+                    n_label = Label(calc,text="Внутреннее сопротивление (R):")
+                    n_label.pack(anchor=NW)
+                    n_entry = Entry(calc,textvariable=R_en)
+                    n_entry.pack(anchor=NW)
+                    t_label = Label(calc,text="Сила тока (I):")
+                    t_label.pack(anchor=NW)
+                    t_entry = Entry(calc,textvariable=i_en)
+                    t_entry.pack(anchor=NW)
+                    result_button = Button(calc,text="Результат", command=lambda: (wid_f6(result_button,t_label,t_entry,n_entry,n_label,combobox_zkom), moshnost_poter()))
+                    result_button.pack(anchor=NW)   
+                if selection13 == "КПД":
+                    def kpdzkom():
+                        if per.get() == 0 and per0.get() == 0:
+                            main_menu = Menu()
+                            main_menu.add_command(label="Очистить окно", command=lambda: del_f3(kpd_1,kpd_2,combobox_zkom))
+                            calc.config(menu=main_menu)
+                        if per.get() == 1 and per0.get() == 0:
+                            n_label = Label(calc,text="Полезная мощность (Pполез):")
+                            n_label.pack(anchor=NW)
+                            n_entry = Entry(calc,textvariable=p1_en)
+                            n_entry.pack(anchor=NW)
+                            t_label = Label(calc,text="Полная мощность (Pполн):")
+                            t_label.pack(anchor=NW)
+                            t_entry = Entry(calc,textvariable=p2_en)
+                            t_entry.pack(anchor=NW)
+                            result_button = Button(calc,text="Результат", command=lambda: (wid_f(result_button,t_label,t_entry,n_entry,n_label), kpd1()))
+                            result_button.pack(anchor=NW)   
+                        if per.get() == 0 and per0.get() == 1:
+                            n_label = Label(calc,text="Внутреннее сопротивление (r):")
+                            n_label.pack(anchor=NW)
+                            n_entry = Entry(calc,textvariable=V_en)
+                            n_entry.pack(anchor=NW)
+                            t_label = Label(calc,text="Внешнее сопротивление (R):")
+                            t_label.pack(anchor=NW)
+                            t_entry = Entry(calc,textvariable=R_en)
+                            t_entry.pack(anchor=NW)
+                            result_button = Button(calc,text="Результат", command=lambda: (wid_f(result_button,t_label,t_entry,n_entry,n_label), kpd2()))
+                            result_button.pack(anchor=NW)   
+                    kpd_1 = ttk.Checkbutton(calc, text="Полезная и полная мощности", variable=per, command=kpdzkom)
+                    kpd_1.pack(anchor=NW)
+                    kpd_2 = ttk.Checkbutton(calc, text="Внутреннее и внешнее сопротивления", variable=per0, command=kpdzkom)
+                    kpd_2.pack(anchor=NW)
+            combobox_zkom = ttk.Combobox(calc,values=Formules_ZkOm, state="readonly", width="45")
+            combobox_zkom.pack(anchor=NW) 
+            combobox_zkom.bind("<<ComboboxSelected>>", selectedbox_zkom)
     combobox_cat = ttk.Combobox(calc, values=Categories, state="readonly",width="45")
     combobox_cat.pack(anchor=NW)
     combobox_cat.bind("<<ComboboxSelected>>", selectedbox_cat)
